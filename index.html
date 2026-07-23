@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heron Rodrigues — Engenharia de Software &amp; DevOps</title>
+
+  <!-- ============================================================
+     FONTES — Google Fonts
+     Shippori Mincho: serifado japonês, referência à caligrafia sumi-e
+     Zen Kaku Gothic New: sans-serif japonesa, uso em corpo de texto
+     JetBrains Mono: monoespaçada, uso em relógios e microdados
+============================================================ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+
+  <!-- Phosphor Icons -->
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css">
+
+  <!-- ============================================================
+     BIBLIOTECAS (via CDN)
+============================================================ -->
+  <!-- Lenis — smooth scroll -->
+  <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- SplitType — divisão de texto para animação -->
+  <script src="https://cdn.jsdelivr.net/npm/split-type@0.3.4/umd/index.min.js"></script>
+  <!-- anime.js — cursor customizado e animação abstrata da Hero -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+  <script src="./script.js" defer></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ================= CURSOR CUSTOMIZADO ================= -->
+  <div class="cursor-ring" id="cursorRing"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+
+  <!-- ================= HEADER ================= -->
+  <header id="siteHeader" class="site-header">
+    <div class="header-water"></div>
+    <div class="header-inner">
+      <a href="#hero" class="logo" data-cursor="link">Heron <span>Rodrigues</span></a>
+      <nav class="main-nav">
+        <a href="#sobre" data-cursor="link">Sobre mim</a>
+        <a href="#projetos" data-cursor="link">Projetos</a>
+        <a href="#clientes" data-cursor="link">Clientes</a>
+        <a href="#contato" data-cursor="link">Contatos</a>
+      </nav>
+      <a href="#contato" class="header-cta" data-cursor="link">
+        Fale comigo <i class="ph ph-arrow-up-right"></i>
+      </a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ================= HERO ================= -->
+    <section id="hero" class="hero">
+      <canvas id="heroCanvas" class="hero-canvas"></canvas>
+      <div class="hero-grain"></div>
+
+      <div class="section-inner hero-inner">
+        <p class="eyebrow" data-hero-fade> Engenheiro DevOps — Cloud — Fullstack</p>
+
+        <h1 class="hero-title">
+          <span class="line">Código como lâmina,</span>
+          <span class="line">precisão como legado.</span>
+        </h1>
+
+        <p class="hero-sub" data-hero-fade>
+          Sou Heron. Construo sistemas há anos, e hoje transformo essa base
+          em disciplina de DevOps e Cloud — com a mesma exatidão,
+          aplicada em outra lâmina.
+        </p>
+
+        <div class="hero-actions" data-hero-fade>
+          <a href="#projetos" class="btn-primary" data-cursor="link">
+            Ver projetos <i class="ph-bold ph-arrow-down-right"></i>
+          </a>
+          <a href="#sobre" class="btn-ghost" data-cursor="link">Conhecer a trajetória</a>
+        </div>
+      </div>
+
+      <!-- Relógios -->
+      <div class="hero-clocks" data-hero-fade>
+        <div class="clock-card">
+          <span class="clock-label"><i class="ph ph-map-pin"></i> São Paulo, BR</span>
+          <span class="clock-time" id="clockBR">00:00:00</span>
+        </div>
+        <div class="clock-divider"></div>
+        <div class="clock-card">
+          <span class="clock-label"><i class="ph ph-map-pin"></i> New York, US</span>
+          <span class="clock-time" id="clockUS">00:00:00</span>
+        </div>
+      </div>
+
+      <div class="hero-scroll-cue">
+        <span>Role para explorar</span>
+        <div class="scroll-line"><i></i></div>
+      </div>
+    </section>
+
+    <!-- ================= SOBRE MIM ================= -->
+    <section id="sobre" class="about">
+      <div class="about-shade" id="aboutShade"></div>
+      <div class="section-inner about-inner">
+
+        <div class="about-pin">
+          <p class="eyebrow">Sobre mim</p>
+          <h2 class="about-title">
+            Seis anos escrevendo software.<br>
+            Os últimos, reescrevendo a forma<br>
+            como confio nele.
+          </h2>
+        </div>
+
+        <div class="about-scroll-track">
+          <article class="about-block" data-about-block>
+            <div class="about-block-text">
+              <span class="about-index">01</span>
+              <h3>Site Reliability Engineering </h3>
+              <p>Passei a maior parte da carreira dentro de infraestrutura — analisando
+                erros, corrigindo arquiteturas, entregando um ambiente melhor para
+                o cliente. Essa disciplina nunca saiu de mim.</p>
+            </div>
+            <div class="about-block-visual" data-parallax>
+              <div class="visual-frame frame-data"></div>
+            </div>
+          </article>
+
+          <article class="about-block" data-about-block>
+            <div class="about-block-text">
+              <span class="about-index">02</span>
+              <h3>Desenvolvimento Fullstack</h3>
+              <p>
+                Migrei todo meu conhecimento em infraestrutura e segurança,
+                para o desenvolvimento. Código mais limpo, mais seguro e 
+                livre para acessar de qualquer lugar.</p>
+            </div>
+            <div class="about-block-visual" data-parallax>
+              <div class="visual-frame frame-code"></div>
+            </div>
+          </article>
+
+          <article class="about-block" data-about-block>
+            <div class="about-block-visual" data-parallax>
+              <div class="visual-frame frame-devops"></div>
+            </div>
+            <div class="about-block-text">
+              <span class="about-index">03</span>
+              <h3>DevOps</h3>
+              <p>Hoje, a mesma exigência técnica de infraestrutura, desenvolvimento
+                e segurança. São usados em Pipelines, observabilidade e cultura de 
+                entrega contínua — a engenharia por trás da engenharia.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PROJETOS ================= -->
+    <section id="projetos" class="projects">
+      <div class="section-inner">
+        <p class="eyebrow">Projetos</p>
+        <h2 class="section-title">Trabalho recente</h2>
+
+        <div class="projects-grid">
+
+          <article class="project-card" data-tilt>
+            <div class="project-card-inner">
+              <div class="project-thumb thumb-snapeats">
+                <span class="project-tag">Produto · Full-stack</span>
+              </div>
+              <div class="project-body">
+                <h3>SnapEats</h3>
+                <p>Plataforma de avaliações sob demanda com processamento de dados
+                  em tempo real e deashboard operacional para restaurantes parceiros.</p>
+                <div class="project-stack">
+                  <span>Python</span><span>Angular</span><span>MySQL</span><span>DistilBERT</span><span>Azure</span><span>Docker</span>
+                </div>
+              </div>
+              <a href="https://github.com/Noreh0/SnapEat/tree/main" class="project-link" data-cursor="link">Ver projeto <i
+                  class="ph ph-arrow-up-right"></i></a>
+            </div>
+          </article>
+
+          <article class="project-card" data-tilt>
+            <div class="project-card-inner">
+              <div class="project-thumb thumb-pipeline">
+                <span class="project-tag">DevOps · Infraestrutura</span>
+              </div>
+              <div class="project-body">
+                <h3>Toggle Master</h3>
+                <p>Esteira de Microserviços com escablabilidade HPA,
+                  provisionado na AWS, separando computação, armazenamento relacional,
+                  cache com Redis e processamento assíncrono.</p>
+                <div class="project-stack">
+                  <span>Kubernetes</span><span>Terraform</span><span>AWS</span><span>Python e Go</span>
+                </div>
+              </div>
+              <a href="https://github.com/Noreh0/toggle-master-k8s" class="project-link" data-cursor="link">Ver projeto <i
+                  class="ph ph-arrow-up-right"></i></a>
+            </div>
+          </article>
+
+          <article class="project-card" data-tilt>
+            <div class="project-card-inner">
+              <div class="project-thumb thumb-lens">
+                <span class="project-tag">Produto · Full-stack</span>
+              </div>
+              <div class="project-body">
+                <h3>TalentFlow</h3>
+                <p>Projeto dedicado para Recursos Humanos com inscrições,
+                   administração de vagas, avaliação de candidatos e exportação
+                   para análise de dados.
+                </p>
+                <div class="project-stack">
+                  <span>Python</span><span>Django</span><span>MySQL</span><span>AWS</span>
+                </div>
+              </div>
+              <a href="https://github.com/Noreh0/interview_candidate_application" class="project-link" data-cursor="link">Ver projeto <i
+                  class="ph ph-arrow-up-right"></i></a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CLIENTES ================= -->
+    <section id="clientes" class="clients">
+      <div class="section-inner">
+        <p class="eyebrow">Clientes</p>
+        <h2 class="section-title">Confiaram no trabalho</h2>
+
+        <div class="clients-grid" id="clientsGrid">
+          <div class="client-card" data-client>Vivo (Telefônica Brasil)</div>
+          <div class="client-card" data-client>I9TMG</div>
+          <div class="client-card" data-client>Hebelle Cosméticos</div>
+          <div class="client-card" data-client>Zaruvny Hortífrutis</div>
+          <div class="client-card" data-client>Paes Garage</div>
+          <div class="client-card" data-client>Miq Hair</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONTATO ================= -->
+    <section id="contato" class="contact">
+      <div class="section-inner contact-inner">
+        <p class="eyebrow">Contatos</p>
+        <h2 class="contact-title">Vamos construir algo com precisão.</h2>
+        <p class="contact-sub">Disponível para projetos de desenvolvimento, consultoria em DevOps e análise de dados.
+        </p>
+
+        <div class="contact-grid">
+          <a href="https://github.com/Noreh0" class="contact-item" data-cursor="link">
+            <i class="ph ph-github-logo"></i>
+            <span>Noreh0</span>
+          </a>
+          <a href="https://wa.me/5541997213680" class="contact-item" data-cursor="link">
+            <i class="ph ph-whatsapp-logo"></i>
+            <span>+55 (41) 99721-3680</span>
+          </a>
+          <a href="https://www.linkedin.com/in/heron-rodrigues-71a909189" class="contact-item" data-cursor="link">
+            <i class="ph ph-linkedin-logo"></i>
+            <span>/in/heron-rodrigues</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="section-inner footer-inner">
+      <span>&copy; <span id="year"></span> Heron Rodrigues. Todos os direitos reservados.</span>
+      <div class="footer-socials">
+        <a href="https://github.com/Noreh0" data-cursor="link"><i class="ph ph-github-logo"></i></a>
+        <a href="https://www.linkedin.com/in/heron-rodrigues-71a909189" data-cursor="link"><i class="ph ph-linkedin-logo"></i></a>
+        <a href="https://www.instagram.com/heronricardo/" data-cursor="link"><i class="ph ph-instagram-logo"></i></a>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
